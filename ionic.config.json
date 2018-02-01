@@ -1,0 +1,8 @@
+{
+  "name": "lectorQR",
+  "app_id": "f7425db7",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
