@@ -14,7 +14,8 @@ export class HomePage {
   }
   qrscan(){
     if(!this.platform.is('cordova')){
-      this.historialProvider.setHistorial('https://www.forocoches.com/');
+      //this.historialProvider.setHistorial('https://www.forocoches.com/');
+      this.historialProvider.setHistorial('geo:40.4146500,-3.7004000');
       console.log(this.historialProvider.cargarHistorial());
       return;
     }

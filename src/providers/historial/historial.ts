@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ScanData } from "../../models/scandata.model";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ModalController } from 'ionic-angular';
+import { MapsPage } from "../../pages/maps/maps";
 
 /*
   Generated class for the HistorialProvider provider.
@@ -12,7 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 export class HistorialProvider {
 
   private historial:ScanData[] = [];
-  constructor(private iab: InAppBrowser) {
+  constructor(private iab: InAppBrowser, private modalCtrl:ModalController) {
 
   }
   cargarHistorial(){
@@ -27,12 +29,15 @@ export class HistorialProvider {
 
   abrirScaner( index:number ){
     let scanData = this.historial[index];
-    console.log(scanData);
-
+    console.log("ScanData1: "+scanData.info);
     switch(scanData.tipo){
       case 'http':
         this.iab.create(scanData.info,"_system");
-      break
+      break;
+      case 'mapa':
+        console.log("scandata.info: "+scanData.info)
+        this.modalCtrl.create(MapsPage,{ coords:scanData.info }).present()
+      break;
 
       default:
         console.log("Tipo no soportado");
