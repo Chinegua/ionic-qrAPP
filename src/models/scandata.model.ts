@@ -13,6 +13,10 @@ export class ScanData{
             this.tipo = "mapa";
             this.info = texto;
 
+        }else if(texto.startsWith("BEGIN:VCARD")){
+            this.tipo = "contacto";
+            this.info = texto;
+
         }
     }
 }
