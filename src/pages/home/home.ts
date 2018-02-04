@@ -26,6 +26,8 @@ export class HomePage {
       ADR;TYPE=work:;;;
       EMAIL:clark@superman.com
       END:VCARD` );*/
+      this.historialProvider.setHistorial('MATMSG:TO:aitorbernalfalcon95@gmail.com;SUB:compra;BODY:aedfvfvf;;');
+
 
       console.log(this.historialProvider.cargarHistorial());
       return;

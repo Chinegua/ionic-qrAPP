@@ -5,6 +5,8 @@ import { ModalController, Platform } from 'ionic-angular';
 import { MapsPage } from "../../pages/maps/maps";
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 import { ToastController } from 'ionic-angular';
+import { EmailComposer } from '@ionic-native/email-composer';
+
 
 
 
@@ -18,7 +20,7 @@ import { ToastController } from 'ionic-angular';
 export class HistorialProvider {
 
   private historial:ScanData[] = [];
-  constructor(private iab: InAppBrowser, private modalCtrl:ModalController, private contacts: Contacts, private platform:Platform, public toastCtrl: ToastController) {
+  constructor(private iab: InAppBrowser, private modalCtrl:ModalController, private contacts: Contacts, private platform:Platform, public toastCtrl: ToastController, private emailComposer: EmailComposer) {
 
   }
   cargarHistorial(){
@@ -46,10 +48,37 @@ export class HistorialProvider {
         
         this.crearContacto(scanData.info);
       break;
+      case 'mail':
+        this.sendMail(scanData.info)
+      break;
 
       default:
         console.log("Tipo no soportado");
     }
+  }
+  private sendMail(info:any){
+   // MATMSG:TO:aitorbernalfalcon95@gmail.com;SUB:compra;BODY:aedfvfvf;;
+    let correo = info.split(";")[0].split(":")[2];
+    let asunto = info.split(";")[1].split(":")[1];
+    let body = info.split(";")[2].split(":")[1];
+
+    this.emailComposer.isAvailable().then((available: boolean) =>{
+      if(available) {
+        //Now we know we can send
+      }
+     });
+     
+     let email = {
+       to: correo,
+       subject: asunto,
+       body: body,
+       isHtml: true
+     };
+     
+     // Send a text message using default options
+     this.emailComposer.open(email);
+
+
   }
   private crearContacto(texto:string){
     let campos:any = this.parse_vcard(texto);

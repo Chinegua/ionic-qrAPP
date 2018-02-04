@@ -13,6 +13,7 @@ import { AgmCoreModule } from '@agm/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Contacts } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 
 //Provider
@@ -49,6 +50,7 @@ import { HistorialProvider } from '../providers/historial/historial';
     HistorialProvider,
     InAppBrowser,
     Contacts,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HistorialProvider
   ]

@@ -17,6 +17,10 @@ export class ScanData{
             this.tipo = "contacto";
             this.info = texto;
 
+        }else if(texto.startsWith("MATMSG")){
+            this.tipo = "mail";
+            this.info = texto;
         }
     }
 }
+

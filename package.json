@@ -24,6 +24,7 @@
     "@ionic-native/barcode-scanner": "^4.5.3",
     "@ionic-native/contacts": "^4.5.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/email-composer": "^4.5.3",
     "@ionic-native/in-app-browser": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
@@ -32,6 +33,7 @@
     "cordova-ios": "4.5.4",
     "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-email-composer": "^0.8.14",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -58,7 +60,8 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-contacts": {}
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-email-composer": {}
     },
     "platforms": [
       "ios"
